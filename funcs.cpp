@@ -69,6 +69,20 @@ void frame(std::string filename){
 
 //Task E
 void scale(std::string filename){
+    int height, width;
+    int image[MAX_H][MAX_W];
+    int outimage[MAX_H][MAX_W];
+    readImage(filename, image, height, width);
 
+    for(int row = 0; row < MAX_H; row++){
+        for(int col = 0; col < MAX_W; col++){
+            for(int outrow = row + 2; outrow < row + 4; outrow++){
+                for(int outcol = col + 2; outcol < col + 4; outcol++){
+                    outimage[outrow][outcol] = image[row][col];
+                }//end inner for loop of out col
+            }//end inner for loop of outrow
+        }//end inner for loop
+    }//end for loop
 
+    writeImage("taskE.pgm", outimage, height, width);
 }//end scale

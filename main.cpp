@@ -8,6 +8,7 @@ int main(){
     //invert("image1.pgm");//Task A
     //invert_half("image2.pgm");
     //box("image2.pgm");
-    frame("image1.pgm");
+    //frame("image1.pgm");
+    scale("inImage.pgm");
     return 0;
 }
