@@ -2,6 +2,7 @@
 #include "imageio.h"
 #include "funcs.h"
 #include <cstdlib>
+#include <cmath>
 
 //Task A
 void invert(std::string filename){
@@ -74,15 +75,37 @@ void scale(std::string filename){
     int outimage[MAX_H][MAX_W];
     readImage(filename, image, height, width);
 
-    for(int row = 0; row < MAX_H; row++){
-        for(int col = 0; col < MAX_W; col++){
-            for(int outrow = row + 2; outrow < row + 4; outrow++){
-                for(int outcol = col + 2; outcol < col + 4; outcol++){
-                    outimage[outrow][outcol] = image[row][col];
-                }//end inner for loop of out col
-            }//end inner for loop of outrow
+    for(int row = 0; row < height; row++){
+        for(int col = 0; col < width; col++){
+            outimage[row * 2][col * 2] = image[row][col];
+            outimage[row * 2][col * 2 + 1] = image[row][col];
+            outimage[row * 2 + 1][col * 2] = image[row][col];
+            outimage[row * 2 + 1][col * 2 + 1] = image[row][col];
+        }//end inner for loop
+    }//end for loop
+    height = height * 2;
+    width = width * 2;
+    writeImage("taskE.pgm", outimage, height, width);
+}//end scale
+
+//Task F
+void pixelate(std::string filename){
+    
+    int height, width, averagedSquare;
+    int image[MAX_H][MAX_W];
+    readImage(filename, image, height, width);
+
+    for(int row = 0; row < height; row+=2){
+        for(int col = 0; col < width; col+=2){
+            averagedSquare = round((image[row * 2][col * 2] + image[row * 2][col * 2 + 1] + image[row * 2 + 1][col * 2] + image[row * 2 + 1][col * 2 + 1])/ 4);
+            image[row * 2][col * 2] = averagedSquare;
+            image[row * 2][col * 2 + 1] = averagedSquare;
+            image[row * 2 + 1][col * 2] = averagedSquare;
+            image[row * 2 + 1][col * 2 + 1] = averagedSquare;
         }//end inner for loop
     }//end for loop
 
-    writeImage("taskE.pgm", outimage, height, width);
-}//end scale
+
+    writeImage("taskF.pgm", image, height, width);
+
+}//end pixelate function

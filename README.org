@@ -6,7 +6,7 @@
 
 * GitHub username: JianHua-Deng
 
-* Notes:
+* Notes: My functions run slower to process because it reads the image and write out the image only when the function are called, therefore it takes to to execute all the functions
 
 
   
