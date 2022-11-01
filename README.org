@@ -6,7 +6,7 @@
 
 * GitHub username: JianHua-Deng
 
-* Notes: My functions run slower to process because it reads the image and write out the image only when the function are called, therefore it takes to to execute all the functions
+* Notes: My functions run really slow on my desktop, yet finishes running really fast on the laptop for reasons I am unaware of, so it might take some time to finish executing.
 
 
   

@@ -25,10 +25,8 @@ void invert_half(std::string filename){
     readImage(filename, image, height, width);
 
     for(int row = 0; row < MAX_H; row++){
-        for(int col = 0; col < MAX_W; col++){
-            if(col >= MAX_H/2){
-                image[row][col] = abs(255 - image[row][col]);
-            }//end condition
+        for(int col = width/2; col < MAX_W; col++){
+            image[row][col] = abs(255 - image[row][col]);
         }//end inner for loop
     }//end for loop
 
