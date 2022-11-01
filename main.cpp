@@ -32,6 +32,6 @@ int main(){
     std::cout << "pixelate() completed" << std::endl;
 
     std::cout << "-------------------------------------------------------------------------------------------------------------" << std::endl;
-    std::cout << "Everything has finished compiling";
+    std::cout << "Everything has finished compiling" << std::endl;
     return 0;
 }
